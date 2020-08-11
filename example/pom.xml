@@ -119,25 +119,25 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<!-- 这是最新版本，推荐使用这个版本 -->
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<id>assemble</id>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<phase>package</phase>
-					</execution>
-				</executions>
-				<configuration>
-					<appendAssemblyId>false</appendAssemblyId>
-					<attach>false</attach>
-				</configuration>
-			</plugin>
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-assembly-plugin</artifactId>-->
+				<!--&lt;!&ndash; 这是最新版本，推荐使用这个版本 &ndash;&gt;-->
+				<!--<version>2.2.1</version>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>assemble</id>-->
+						<!--<goals>-->
+							<!--<goal>single</goal>-->
+						<!--</goals>-->
+						<!--<phase>package</phase>-->
+					<!--</execution>-->
+				<!--</executions>-->
+				<!--<configuration>-->
+					<!--<appendAssemblyId>false</appendAssemblyId>-->
+					<!--<attach>false</attach>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 		</plugins>
 	</build>
 

@@ -47,6 +47,18 @@
 
     <repositories>
         <repository>
+            <id>nexus-aliyun</id>
+            <name>local private nexus nx</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+
+            </snapshots>
+        </repository>
+        <repository>
             <id>central</id>
             <url>http://repo1.maven.org/maven2</url>
             <releases>
@@ -112,6 +124,7 @@
 
     <modules>
         <module>common</module>
+        <module>connector</module>
         <module>meta</module>
         <module>dbsync</module>
         <module>filter</module>

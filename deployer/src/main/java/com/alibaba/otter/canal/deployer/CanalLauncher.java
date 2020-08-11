@@ -47,6 +47,8 @@ public class CanalLauncher {
             }
 
             final CanalStarter canalStater = new CanalStarter(properties);
+
+            //获取管理界面地址
             String managerAddress = CanalController.getProperty(properties, CanalConstants.CANAL_ADMIN_MANAGER);
             if (StringUtils.isNotEmpty(managerAddress)) {
                 String user = CanalController.getProperty(properties, CanalConstants.CANAL_ADMIN_USER);
@@ -111,7 +113,7 @@ public class CanalLauncher {
             } else {
                 canalStater.setProperties(properties);
             }
-
+            //启动canal
             canalStater.start();
             runningLatch.await();
             executor.shutdownNow();

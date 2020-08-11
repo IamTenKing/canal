@@ -60,12 +60,15 @@ public class CanalStarter {
      */
     public synchronized void start() throws Throwable {
         String serverMode = CanalController.getProperty(properties, CanalConstants.CANAL_SERVER_MODE);
+        //判断模式是那种mq,创建mq生产者实例
         if (serverMode.equalsIgnoreCase("kafka")) {
             canalMQProducer = new CanalKafkaProducer();
         } else if (serverMode.equalsIgnoreCase("rocketmq")) {
             canalMQProducer = new CanalRocketMQProducer();
         }
 
+
+        //使用mq则不使用netty
         if (canalMQProducer != null) {
             // disable netty
             System.setProperty(CanalConstants.CANAL_WITHOUT_NETTY, "true");
@@ -74,9 +77,11 @@ public class CanalStarter {
         }
 
         logger.info("## start the canal server.");
+        //真的启动
         controller = new CanalController(properties);
         controller.start();
         logger.info("## the canal server is running now ......");
+        //声明一个线程，并注入到关闭钩子中
         shutdownThread = new Thread() {
 
             public void run() {
