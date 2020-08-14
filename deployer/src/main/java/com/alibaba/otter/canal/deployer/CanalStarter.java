@@ -81,6 +81,7 @@ public class CanalStarter {
         controller = new CanalController(properties);
         controller.start();
         logger.info("## the canal server is running now ......");
+
         //声明一个线程，并注入到关闭钩子中
         shutdownThread = new Thread() {
 

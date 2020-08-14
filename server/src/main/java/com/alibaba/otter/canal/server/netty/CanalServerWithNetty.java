@@ -79,6 +79,7 @@ public class CanalServerWithNetty extends AbstractCanalLifeCycle implements Cana
 
             public ChannelPipeline getPipeline() throws Exception {
                 ChannelPipeline pipelines = Channels.pipeline();
+
                 pipelines.addLast(FixedHeaderFrameDecoder.class.getName(), new FixedHeaderFrameDecoder());
                 // support to maintain child socket channel.
                 pipelines.addLast(HandshakeInitializationHandler.class.getName(),
